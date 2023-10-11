@@ -51,7 +51,7 @@ public class Main {
         TimeUnit.MILLISECONDS.sleep(1500);
         //************************* NUMERO 1 ********************************
         System.err.println("Numero 1");
-        List<Product> bookList = productsList.stream().filter(el -> el.getCategory().equals("book") && el.getPrice() < 100).toList();
+        List<Product> bookList = productsList.stream().filter(el -> el.getCategory().equals("book") && el.getPrice() > 100).toList();
         bookList.forEach(System.out::println);
 
 
