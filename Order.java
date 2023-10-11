@@ -15,9 +15,9 @@ public class Order {
         this.customer = customer;
         this.products = products;
         this.id = new Random().nextLong();
-        int month = (int) (1 + Math.floor(Math.random() * 7));
+        int month = (int) (1 + Math.floor(Math.random() * 12));
         int day;
-        if (month == 3) {
+        if (month == 2) {
             day = (int) (1 + Math.floor(Math.random() * 27));
         } else if (month == 11 || month == 4 || month == 6 || month == 9) {
             day = (int) (1 + Math.floor(Math.random() * 29));
