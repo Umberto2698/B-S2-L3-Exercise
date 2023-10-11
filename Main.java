@@ -34,29 +34,6 @@ public class Main {
         productsList.forEach(System.out::println);
 
         TimeUnit.MILLISECONDS.sleep(1500);
-        //************************* NUMERO 1 ********************************
-        System.err.println("Numero 1");
-        List<Product> bookList = productsList.stream().filter(el -> el.getCategory().equals("book") && el.getPrice() < 100).toList();
-        bookList.forEach(System.out::println);
-
-
-        TimeUnit.MILLISECONDS.sleep(1500);
-        //************************* NUMERO 2 ********************************
-        System.err.println("Numero 2");
-        List<Product> babyList = productsList.stream().filter(el -> el.getCategory().equals("baby")).toList();
-        babyList.forEach(System.out::println);
-
-        TimeUnit.MILLISECONDS.sleep(1500);
-        //************************* NUMERO 3 ********************************
-        System.err.println("Numero 3");
-        List<Product> boysListOnSales = productsList.stream().filter(el -> el.getCategory().equals("boys")).toList();
-        boysListOnSales.forEach(el -> {
-            el.setPrice((el.getPrice() - 0.1 * el.getPrice()));
-            System.out.println(el);
-        });
-
-        TimeUnit.MILLISECONDS.sleep(1500);
-        //************************* NUMERO 4 ********************************
         List<Order> orderList = new ArrayList<>();
 //        List<Product> orderProductList = new ArrayList<>();
         for (Customer customer : customerList) {
@@ -71,7 +48,32 @@ public class Main {
         System.err.println("Lista ordini:");
         orderList.forEach(System.out::println);
 
-        
+        TimeUnit.MILLISECONDS.sleep(1500);
+        //************************* NUMERO 1 ********************************
+        System.err.println("Numero 1");
+        List<Product> bookList = productsList.stream().filter(el -> el.getCategory().equals("book") && el.getPrice() < 100).toList();
+        bookList.forEach(System.out::println);
+
+
+        TimeUnit.MILLISECONDS.sleep(1500);
+        //************************* NUMERO 2 ********************************
+        System.err.println("Numero 2");
+        List<Order> babyOdersList = orderList.stream().filter(el -> el.getProducts().stream().anyMatch(product -> product.getCategory().equals("baby"))).toList();
+        babyOdersList.forEach(System.out::println);
+
+        TimeUnit.MILLISECONDS.sleep(1500);
+        //************************* NUMERO 3 ********************************
+        System.err.println("Numero 3");
+        List<Product> boysListOnSales = productsList.stream().filter(el -> el.getCategory().equals("boys")).toList();
+        boysListOnSales.forEach(el -> {
+            el.setPrice((el.getPrice() - 0.1 * el.getPrice()));
+            System.out.println(el);
+        });
+
+        TimeUnit.MILLISECONDS.sleep(1500);
+        //************************* NUMERO 4 ********************************
+
+
         TimeUnit.MILLISECONDS.sleep(1500);
         System.err.println("Numero 4");
         List<Order> tierTwoCustomerOrderList = orderList.stream().filter(order -> order.getCustomer().getTier() == 2).toList();
